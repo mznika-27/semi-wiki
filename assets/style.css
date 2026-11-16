@@ -1,0 +1,139 @@
+/* 半導體產業小百科：全站共用樣式。單一詞條不要另外改這支檔案，規則見 CLAUDE.md */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@500&display=swap');
+
+:root {
+  --ink: #18202b;
+  --ink-soft: #4a5565;
+  --line: #e3e7ee;
+  --paper: #f6f7f9;
+  --card: #ffffff;
+  --navy: #10213d;
+  --accent: #2f6fed;
+  /* 分類色：新增分類時，這裡、data/terms.json 的 categories、CLAUDE.md 三處要一起改 */
+  --c-fab: #2f6fed;      /* 製造 */
+  --c-equip: #e07b1a;    /* 設備材料 */
+  --c-pkg: #7c4ddb;      /* 封裝 */
+  --c-mem: #12a57a;      /* 記憶體 */
+  --c-test: #d6404e;     /* 測試 */
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  font-family: 'Noto Sans TC', system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.8;
+  font-size: 16px;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* 頂部導覽 */
+.topbar {
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 20px;
+  position: sticky; top: 0; z-index: 10;
+}
+.topbar .inner { max-width: 980px; margin: 0 auto; display: flex; align-items: center; gap: 14px; }
+.topbar a.brand { color: #fff; font-weight: 900; letter-spacing: 1px; font-size: 18px; }
+.topbar a.brand span { color: #8fb3ff; }
+.topbar .sub { color: #9fb0cc; font-size: 13px; margin-left: auto; }
+
+.wrap { max-width: 980px; margin: 0 auto; padding: 28px 20px 60px; }
+
+/* 首頁 hero */
+.hero {
+  background: linear-gradient(135deg, #10213d 0%, #1d3a6b 60%, #2f6fed 130%);
+  color: #fff; border-radius: 20px; padding: 36px 34px; position: relative; overflow: hidden;
+}
+.hero:after {
+  content: ""; position: absolute; right: -60px; top: -60px; width: 260px; height: 260px;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.08) 0 2px, transparent 2px 22px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.08) 0 2px, transparent 2px 22px);
+  border-radius: 24px; transform: rotate(18deg);
+}
+.hero h1 { margin: 0 0 6px; font-size: 34px; font-weight: 900; letter-spacing: 2px; }
+.hero p { margin: 0; color: #c9d6f0; max-width: 600px; }
+.hero .stats { margin-top: 18px; display: flex; gap: 22px; font-size: 14px; color: #c9d6f0; }
+.hero .stats b { color: #fff; font-size: 22px; display: block; }
+
+.search {
+  margin: 22px 0 12px; display: flex; gap: 10px; flex-wrap: wrap;
+}
+.search input {
+  flex: 1 1 260px; padding: 12px 16px; border-radius: 999px; border: 1px solid var(--line);
+  font: inherit; background: #fff;
+}
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+.chip {
+  border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 4px 14px;
+  font-size: 14px; cursor: pointer; color: var(--ink-soft);
+}
+.chip.on { color: #fff; border-color: transparent; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px 20px; display: block; color: var(--ink); position: relative;
+  transition: transform .15s, box-shadow .15s;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(16,33,61,.08); text-decoration: none; }
+.card .bar { position: absolute; left: 0; top: 16px; bottom: 16px; width: 4px; border-radius: 0 4px 4px 0; }
+.card h3 { margin: 0; font-size: 19px; }
+.card .en { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-soft); }
+.card p { margin: 8px 0 0; color: var(--ink-soft); font-size: 15px; }
+
+.tag {
+  display: inline-block; font-size: 12px; font-weight: 700; color: #fff; padding: 1px 10px;
+  border-radius: 999px; vertical-align: middle;
+}
+.cat-fab { background: var(--c-fab); }
+.cat-equip { background: var(--c-equip); }
+.cat-pkg { background: var(--c-pkg); }
+.cat-mem { background: var(--c-mem); }
+.cat-test { background: var(--c-test); }
+
+/* 詞條頁 */
+.crumb { font-size: 14px; color: var(--ink-soft); margin-bottom: 10px; }
+.term-head h1 { margin: 6px 0 0; font-size: 36px; font-weight: 900; line-height: 1.3; }
+.term-head .en { font-family: 'JetBrains Mono', monospace; color: var(--ink-soft); font-size: 15px; }
+.oneliner {
+  margin: 20px 0 8px; background: #fff; border: 1px solid var(--line); border-left: 6px solid var(--accent);
+  border-radius: 10px; padding: 14px 18px; font-size: 18px; font-weight: 500;
+}
+.term section { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 6px 24px 14px; margin-top: 16px; }
+.term section h2 { font-size: 20px; margin: 16px 0 6px; }
+.term section h2:before { content: "▍"; color: var(--accent); }
+
+.chain { display: flex; align-items: stretch; gap: 8px; flex-wrap: wrap; margin: 10px 0 8px; }
+.chain .node {
+  flex: 1 1 160px; border: 1px dashed #c8d0dc; border-radius: 10px; padding: 10px 12px; font-size: 14px;
+  background: var(--paper);
+}
+.chain .node b { display: block; font-size: 12px; color: var(--ink-soft); }
+.chain .node.me { border: 2px solid var(--accent); background: #eef3ff; }
+.chain .arrow { align-self: center; color: #9aa6b8; font-weight: 700; }
+
+table.co { border-collapse: collapse; width: 100%; font-size: 15px; margin: 6px 0 10px; }
+table.co th, table.co td { border-bottom: 1px solid var(--line); padding: 8px 6px; text-align: left; vertical-align: top; }
+table.co th { color: var(--ink-soft); font-weight: 500; font-size: 13px; }
+
+.related { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 8px 0 6px; }
+.related a { border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; background: var(--paper); color: var(--ink); }
+.related a:hover { border-color: var(--accent); text-decoration: none; }
+.related a small { display: block; color: var(--ink-soft); font-size: 12px; }
+
+.meta { margin-top: 22px; font-size: 13px; color: var(--ink-soft); }
+footer { text-align: center; color: var(--ink-soft); font-size: 13px; padding: 30px 20px; }
+
+@media (max-width: 600px) {
+  .hero { padding: 26px 22px; }
+  .hero h1 { font-size: 26px; }
+  .term-head h1 { font-size: 28px; }
+  .term section { padding: 4px 16px 12px; }
+  .chain .arrow { display: none; }
+}

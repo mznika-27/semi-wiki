@@ -1,0 +1,116 @@
+{
+  "categories": {
+    "fab": {
+      "label": "製造",
+      "color": "#2f6fed"
+    },
+    "equip": {
+      "label": "設備材料",
+      "color": "#e07b1a"
+    },
+    "pkg": {
+      "label": "封裝",
+      "color": "#7c4ddb"
+    },
+    "mem": {
+      "label": "記憶體",
+      "color": "#12a57a"
+    },
+    "test": {
+      "label": "測試",
+      "color": "#d6404e"
+    }
+  },
+  "terms": [
+    {
+      "slug": "foundry",
+      "name": "晶圓代工",
+      "en": "Foundry",
+      "category": "fab",
+      "oneliner": "自己不設計晶片，專門幫別人把設計圖做成晶片。",
+      "related": [
+        "advanced-node",
+        "euv",
+        "cowos"
+      ],
+      "updated": "2026-11-16"
+    },
+    {
+      "slug": "advanced-node",
+      "name": "先進製程",
+      "en": "Advanced Node（3nm、2nm…）",
+      "category": "fab",
+      "oneliner": "3 奈米、2 奈米這種代號，數字越小電晶體越密、越省電。",
+      "related": [
+        "foundry",
+        "euv",
+        "chiplet"
+      ],
+      "updated": "2026-11-16"
+    },
+    {
+      "slug": "euv",
+      "name": "EUV 極紫外光微影",
+      "en": "Extreme Ultraviolet Lithography",
+      "category": "equip",
+      "oneliner": "用波長 13.5 奈米的光，把極細的電路圖案印到晶圓上。",
+      "related": [
+        "advanced-node",
+        "foundry"
+      ],
+      "updated": "2026-11-16"
+    },
+    {
+      "slug": "cowos",
+      "name": "CoWoS",
+      "en": "Chip on Wafer on Substrate",
+      "category": "pkg",
+      "oneliner": "把 GPU 和 HBM 並排放在中介層上，再接到載板的先進封裝。",
+      "related": [
+        "hbm",
+        "chiplet",
+        "abf-substrate",
+        "foundry"
+      ],
+      "updated": "2026-11-16"
+    },
+    {
+      "slug": "chiplet",
+      "name": "小晶片",
+      "en": "Chiplet",
+      "category": "pkg",
+      "oneliner": "把一顆大晶片拆成幾顆小晶片分開做，再封裝在一起。",
+      "related": [
+        "cowos",
+        "advanced-node",
+        "hbm",
+        "abf-substrate"
+      ],
+      "updated": "2026-11-16"
+    },
+    {
+      "slug": "hbm",
+      "name": "HBM 高頻寬記憶體",
+      "en": "High Bandwidth Memory",
+      "category": "mem",
+      "oneliner": "把好幾層 DRAM 疊起來，緊貼 GPU，讓資料一次傳很多。",
+      "related": [
+        "cowos",
+        "chiplet"
+      ],
+      "updated": "2026-11-16"
+    },
+    {
+      "slug": "abf-substrate",
+      "name": "ABF 載板",
+      "en": "ABF Substrate",
+      "category": "equip",
+      "oneliner": "晶片和電路板之間的轉接板，把很密的接點拉開。",
+      "related": [
+        "cowos",
+        "chiplet"
+      ],
+      "updated": "2026-11-16"
+    }
+  ]
+}
