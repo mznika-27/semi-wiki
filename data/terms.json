@@ -21,12 +21,35 @@
       "color": "#e07b1a"
     }
   },
+  "bottlenecks": {
+    "density": {
+      "label": "封裝密度",
+      "desc": "一顆封裝要塞進更多晶片、HBM 和連線，尺寸和接點密度到頂"
+    },
+    "bandwidth": {
+      "label": "記憶體頻寬",
+      "desc": "GPU 等資料的時間比算的時間長，記憶體送得不夠快"
+    },
+    "chip-power": {
+      "label": "晶片供電",
+      "desc": "電晶體越密，電送進去的壓降和繞線空間不夠"
+    },
+    "interconnect": {
+      "label": "互連耗電",
+      "desc": "幾萬顆 GPU 之間傳資料，光電轉換的耗電和延遲越來越大"
+    },
+    "rack": {
+      "label": "機櫃電力與散熱",
+      "desc": "一櫃上百 kW，電送不進去、熱帶不出來"
+    }
+  },
   "terms": [
     {
       "slug": "cowos-l",
       "name": "CoWoS-L",
       "en": "CoWoS with Local Silicon Interconnect",
       "category": "pkg",
+      "bottleneck": "density",
       "oneliner": "用局部矽橋取代整片矽中介層，讓 AI 晶片封裝做得更大。",
       "related": [
         "hbm4",
@@ -41,6 +64,7 @@
       "name": "HBM4",
       "en": "High Bandwidth Memory 4",
       "category": "mem",
+      "bottleneck": "bandwidth",
       "oneliner": "介面加寬到 2048 位元，最底層的邏輯晶片改由晶圓代工做。",
       "related": [
         "cowos-l",
@@ -53,6 +77,7 @@
       "name": "混合鍵合",
       "en": "Hybrid Bonding",
       "category": "pkg",
+      "bottleneck": "density",
       "oneliner": "不用凸塊焊錫，讓上下兩層晶片的銅接點直接接合。",
       "related": [
         "hbm4",
@@ -67,6 +92,7 @@
       "name": "CPO 共同封裝光學",
       "en": "Co-Packaged Optics",
       "category": "optics",
+      "bottleneck": "interconnect",
       "oneliner": "把光引擎搬到交換器晶片旁邊，縮短電訊號要走的路。",
       "related": [
         "cowos-l",
@@ -81,6 +107,7 @@
       "name": "背面供電",
       "en": "Backside Power Delivery Network",
       "category": "fab",
+      "bottleneck": "chip-power",
       "oneliner": "把供電線路移到晶圓背面，正面只留給訊號線。",
       "related": [
         "hybrid-bonding",
@@ -94,6 +121,7 @@
       "name": "玻璃基板",
       "en": "Glass Core Substrate",
       "category": "pkg",
+      "bottleneck": "density",
       "oneliner": "用玻璃取代有機材料當載板核心，撐住更大的封裝。",
       "related": [
         "cowos-l",
@@ -106,6 +134,7 @@
       "name": "800V 直流供電",
       "en": "800 VDC Power Architecture",
       "category": "power",
+      "bottleneck": "rack",
       "oneliner": "機櫃改用 800 伏特直流供電，降低電流和銅排用量。",
       "related": [
         "liquid-cooling",
@@ -118,6 +147,7 @@
       "name": "液冷散熱",
       "en": "Direct-to-Chip Liquid Cooling",
       "category": "power",
+      "bottleneck": "rack",
       "oneliner": "讓冷卻液流過貼在晶片上的水冷板，把熱直接帶走。",
       "related": [
         "hvdc-800v",
@@ -130,6 +160,7 @@
       "name": "LPO 線性驅動可插拔光模組",
       "en": "Linear-drive Pluggable Optics",
       "category": "optics",
+      "bottleneck": "interconnect",
       "oneliner": "拿掉光模組裡的 DSP，改由交換器晶片的 SerDes 直接驅動光元件。",
       "related": [
         "cpo"

@@ -16,7 +16,7 @@
 <main class="wrap">
   <div class="hero">
     <h1>AI 供應鏈技術筆記</h1>
-    <p>AI 伺服器的規格一年一變：CoWoS 從 S 換到 L、HBM4 的 base die 交給代工、交換器開始上 CPO、機櫃電壓要拉到 800V。每出一個新技術，我都要搞懂它跟舊做法差在哪、卡在哪、誰的 content 會變多。這裡把這些筆記整理成一個技術一頁，互相連結。</p>
+    <p>AI 伺服器的規格一年一變：CoWoS 從 S 換到 L、HBM4 的 base die 交給代工、交換器開始上 CPO、機櫃電壓要拉到 800V。這些變化背後都在解同幾個瓶頸：封裝塞不下、記憶體送不夠快、晶片電送不進去、GPU 之間傳資料太耗電、機櫃電和熱撐不住。這裡依瓶頸整理每個規格轉換：跟舊做法差在哪、卡在哪、研究時看什麼。</p>
     <div class="stats">
       <div><b id="stat-terms">–</b>個詞條</div>
       <div><b id="stat-cats">–</b>個分類</div>
@@ -24,6 +24,10 @@
     </div>
   </div>
 
+  <h2 class="sec-title">依瓶頸看<small>每個詞條都在解 AI 機櫃的某一個瓶頸</small></h2>
+  <div class="necks" id="necks"></div>
+
+  <h2 class="sec-title">全部詞條</h2>
   <div class="search">
     <input id="q" type="search" placeholder="搜尋，例如 HBM4、混合鍵合、800V…" aria-label="搜尋詞條">
   </div>

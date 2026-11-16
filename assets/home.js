@@ -22,6 +22,16 @@
   mkChip('all', '全部');
   for (const [key, c] of Object.entries(cats)) mkChip(key, c.label, c.color);
 
+  const necks = document.getElementById('necks');
+  for (const [key, b] of Object.entries(data.bottlenecks || {})) {
+    const box = document.createElement('div');
+    box.className = 'nk';
+    const links = terms.filter(t => t.bottleneck === key)
+      .map(t => `<a href="wiki/${t.slug}.html">${t.name}</a>`).join('');
+    box.innerHTML = `<h4>${b.label}</h4><p>${b.desc}</p>${links}`;
+    necks.appendChild(box);
+  }
+
   const q = document.getElementById('q');
   q.addEventListener('input', render);
 

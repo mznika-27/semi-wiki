@@ -4,7 +4,7 @@
 
 全部通過才可以 commit。檢查項目：
 1. terms.json 每個詞條都有對應的 wiki/<slug>.html，反過來也一樣
-2. 必填欄位都有填，分類代碼存在，slug 格式正確，一句話說明 40 字以內
+2. 必填欄位都有填，分類代碼和瓶頸代碼存在，slug 格式正確，一句話說明 40 字以內
 3. 每頁六個段落（what / compare / chain / companies / watch / related）都在，而且照順序
 4. 沒有留下 {{ }} 佔位符或範本註解
 5. 頁面標題、一句話說明跟 terms.json 一致
@@ -19,13 +19,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SECTIONS = ["what", "compare", "chain", "companies", "watch", "related"]
 BANNED = ["目標價", "股價", "買進", "賣出", "推薦買", "加碼", "減碼"]
-REQUIRED = ["slug", "name", "en", "category", "oneliner", "related", "updated"]
+REQUIRED = ["slug", "name", "en", "category", "bottleneck", "oneliner", "related", "updated"]
 
 
 def main():
     errors = []
     data = json.loads((ROOT / "data" / "terms.json").read_text(encoding="utf-8"))
     cats = data["categories"]
+    necks = data.get("bottlenecks", {})
     terms = {t["slug"]: t for t in data["terms"]}
     pages = {p.stem for p in (ROOT / "wiki").glob("*.html")}
 
@@ -42,6 +43,8 @@ def main():
             errors.append(f"{slug}: slug 格式不對，只能用小寫英文、數字、連字號")
         if t.get("category") not in cats:
             errors.append(f"{slug}: 分類 {t.get('category')} 不存在")
+        if t.get("bottleneck") not in necks:
+            errors.append(f"{slug}: 瓶頸 {t.get('bottleneck')} 不存在，要先在 bottlenecks 定義")
         if len(t.get("oneliner", "")) > 40:
             errors.append(f"{slug}: 一句話說明超過 40 字（{len(t['oneliner'])} 字）")
         rel = t.get("related", [])
@@ -66,6 +69,9 @@ def main():
             errors.append(f"{slug}: 頁面 <h1> 跟 terms.json 的 name 不一致")
         if f'<div class="oneliner">{t.get("oneliner")}</div>' not in html:
             errors.append(f"{slug}: 頁面一句話說明跟 terms.json 不一致")
+        nk = necks.get(t.get("bottleneck"), {})
+        if f'<div class="neck">解的瓶頸：<b>{nk.get("label")}</b>' not in html:
+            errors.append(f"{slug}: 頁面的瓶頸標示跟 terms.json 不一致")
         if f'class="tag cat-{t.get("category")}"' not in html:
             errors.append(f"{slug}: 分類標籤跟 terms.json 不一致")
         page_links = set(re.findall(r'<a href="([a-z0-9-]+)\.html">', html))
