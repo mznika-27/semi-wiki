@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{NAME}}｜半導體產業小百科</title>
+<title>{{NAME}}｜AI 供應鏈技術筆記</title>
 <meta name="description" content="{{ONELINER}}">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
 <header class="topbar"><div class="inner">
-  <a class="brand" href="../index.html">半導體<span>小百科</span></a>
-  <span class="sub">一個名詞一頁・白話版</span>
+  <a class="brand" href="../index.html">AI 供應鏈<span>技術筆記</span></a>
+  <span class="sub">一個技術一頁・研究用</span>
 </div></header>
 
 <main class="wrap term" data-slug="{{SLUG}}">
@@ -23,8 +23,16 @@
   <div class="oneliner">{{ONELINER}}</div>
 
   <section id="what">
-    <h2>白話解釋</h2>
-    <!-- 2 到 4 段 <p>，先講它在做什麼，再講為什麼重要 -->
+    <h2>技術重點</h2>
+    <!-- 2 到 3 段 <p>：它解決什麼瓶頸、怎麼做到、目前到哪個世代 -->
+  </section>
+
+  <section id="compare">
+    <h2>跟舊做法差在哪</h2>
+    <table class="cmp">
+      <tr><th>比較項目</th><th>舊做法</th><th>新做法</th></tr>
+      <!-- 2 到 4 列，每格一句話 -->
+    </table>
   </section>
 
   <section id="chain">
@@ -44,9 +52,11 @@
     </table>
   </section>
 
-  <section id="myth">
-    <h2>常見誤解</h2>
-    <!-- 1 到 2 條 <p>，寫剛接觸這個名詞的人最容易搞錯的地方 -->
+  <section id="watch">
+    <h2>研究時看什麼</h2>
+    <ul>
+      <!-- 2 到 4 條 <li>：導入時程、良率或產能瓶頸、規格往哪走、誰的 content 會變多 -->
+    </ul>
   </section>
 
   <section id="related">

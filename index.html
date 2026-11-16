@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>半導體產業小百科</title>
-<meta name="description" content="用白話解釋 AI 晶片供應鏈上的名詞：一個名詞一頁，互相連結。">
+<title>AI 供應鏈技術筆記</title>
+<meta name="description" content="追 AI 伺服器供應鏈時碰到的新技術：跟舊做法差在哪、卡在哪、研究時看什麼。">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <header class="topbar"><div class="inner">
-  <a class="brand" href="index.html">半導體<span>小百科</span></a>
-  <span class="sub">一個名詞一頁・白話版</span>
+  <a class="brand" href="index.html">AI 供應鏈<span>技術筆記</span></a>
+  <span class="sub">一個技術一頁・研究用</span>
 </div></header>
 
 <main class="wrap">
   <div class="hero">
-    <h1>半導體產業小百科</h1>
-    <p>念財管、看產業新聞的時候，常常卡在 CoWoS、HBM、EUV 這些名詞。這裡把 AI 晶片從製造到測試會碰到的名詞，一個一個用白話寫成一頁，頁面之間互相連結。</p>
+    <h1>AI 供應鏈技術筆記</h1>
+    <p>AI 伺服器的規格一年一變：CoWoS 從 S 換到 L、HBM4 的 base die 交給代工、交換器開始上 CPO、機櫃電壓要拉到 800V。每出一個新技術，我都要搞懂它跟舊做法差在哪、卡在哪、誰的 content 會變多。這裡把這些筆記整理成一個技術一頁，互相連結。</p>
     <div class="stats">
       <div><b id="stat-terms">–</b>個詞條</div>
       <div><b id="stat-cats">–</b>個分類</div>
@@ -25,14 +25,14 @@
   </div>
 
   <div class="search">
-    <input id="q" type="search" placeholder="搜尋名詞，例如 HBM、封裝、記憶體…" aria-label="搜尋詞條">
+    <input id="q" type="search" placeholder="搜尋，例如 HBM4、混合鍵合、800V…" aria-label="搜尋詞條">
   </div>
   <div class="chips" id="chips"></div>
   <div class="grid" id="grid"></div>
   <p id="empty" hidden>找不到符合的詞條。</p>
 </main>
 
-<footer>內容整理自公開資料與課堂所學，只做名詞解釋，不構成投資建議。規則寫在 <a href="https://github.com/mznika-27/semi-wiki/blob/main/CLAUDE.md">CLAUDE.md</a>。</footer>
+<footer>內容整理自公開資料，只做技術整理，不構成投資建議。規則寫在 <a href="https://github.com/mznika-27/semi-wiki/blob/main/CLAUDE.md">CLAUDE.md</a>。</footer>
 <script src="assets/home.js"></script>
 </body>
 </html>

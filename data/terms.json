@@ -1,130 +1,126 @@
 {
   "categories": {
-    "fab": {
-      "label": "製造",
-      "color": "#2f6fed"
-    },
-    "equip": {
-      "label": "設備材料",
-      "color": "#e07b1a"
-    },
     "pkg": {
-      "label": "封裝",
+      "label": "先進封裝",
       "color": "#7c4ddb"
     },
     "mem": {
       "label": "記憶體",
       "color": "#12a57a"
     },
-    "test": {
-      "label": "測試",
-      "color": "#d6404e"
+    "fab": {
+      "label": "製程",
+      "color": "#2f6fed"
+    },
+    "optics": {
+      "label": "光通訊",
+      "color": "#0e9bb5"
+    },
+    "power": {
+      "label": "電源散熱",
+      "color": "#e07b1a"
     }
   },
   "terms": [
     {
-      "slug": "foundry",
-      "name": "晶圓代工",
-      "en": "Foundry",
-      "category": "fab",
-      "oneliner": "自己不設計晶片，專門幫別人把設計圖做成晶片。",
-      "related": [
-        "advanced-node",
-        "euv",
-        "cowos"
-      ],
-      "updated": "2026-11-16"
-    },
-    {
-      "slug": "advanced-node",
-      "name": "先進製程",
-      "en": "Advanced Node（3nm、2nm…）",
-      "category": "fab",
-      "oneliner": "3 奈米、2 奈米這種代號，數字越小電晶體越密、越省電。",
-      "related": [
-        "foundry",
-        "euv",
-        "chiplet"
-      ],
-      "updated": "2026-11-16"
-    },
-    {
-      "slug": "euv",
-      "name": "EUV 極紫外光微影",
-      "en": "Extreme Ultraviolet Lithography",
-      "category": "equip",
-      "oneliner": "用波長 13.5 奈米的光，把極細的電路圖案印到晶圓上。",
-      "related": [
-        "advanced-node",
-        "foundry"
-      ],
-      "updated": "2026-11-16"
-    },
-    {
-      "slug": "cowos",
-      "name": "CoWoS",
-      "en": "Chip on Wafer on Substrate",
+      "slug": "cowos-l",
+      "name": "CoWoS-L",
+      "en": "CoWoS with Local Silicon Interconnect",
       "category": "pkg",
-      "oneliner": "把 GPU 和 HBM 並排放在中介層上，再接到載板的先進封裝。",
+      "oneliner": "用局部矽橋取代整片矽中介層，讓 AI 晶片封裝做得更大。",
       "related": [
-        "hbm",
-        "chiplet",
-        "abf-substrate",
-        "foundry",
-        "probe-card"
+        "hbm4",
+        "hybrid-bonding",
+        "glass-substrate",
+        "cpo"
       ],
       "updated": "2026-11-16"
     },
     {
-      "slug": "chiplet",
-      "name": "小晶片",
-      "en": "Chiplet",
-      "category": "pkg",
-      "oneliner": "把一顆大晶片拆成幾顆小晶片分開做，再封裝在一起。",
-      "related": [
-        "cowos",
-        "advanced-node",
-        "hbm",
-        "abf-substrate",
-        "probe-card"
-      ],
-      "updated": "2026-11-16"
-    },
-    {
-      "slug": "hbm",
-      "name": "HBM 高頻寬記憶體",
-      "en": "High Bandwidth Memory",
+      "slug": "hbm4",
+      "name": "HBM4",
+      "en": "High Bandwidth Memory 4",
       "category": "mem",
-      "oneliner": "把好幾層 DRAM 疊起來，緊貼 GPU，讓資料一次傳很多。",
+      "oneliner": "介面加寬到 2048 位元，最底層的邏輯晶片改由晶圓代工做。",
       "related": [
-        "cowos",
-        "chiplet",
-        "probe-card"
+        "cowos-l",
+        "hybrid-bonding"
       ],
       "updated": "2026-11-16"
     },
     {
-      "slug": "abf-substrate",
-      "name": "ABF 載板",
-      "en": "ABF Substrate",
-      "category": "equip",
-      "oneliner": "晶片和電路板之間的轉接板，把很密的接點拉開。",
+      "slug": "hybrid-bonding",
+      "name": "混合鍵合",
+      "en": "Hybrid Bonding",
+      "category": "pkg",
+      "oneliner": "不用凸塊焊錫，讓上下兩層晶片的銅接點直接接合。",
       "related": [
-        "cowos",
-        "chiplet"
+        "hbm4",
+        "cowos-l",
+        "bspdn",
+        "cpo"
       ],
       "updated": "2026-11-16"
     },
     {
-      "slug": "probe-card",
-      "name": "探針卡",
-      "en": "Probe Card",
-      "category": "test",
-      "oneliner": "晶圓切割前，用細針接觸晶片接點，測出哪些晶片是好的。",
+      "slug": "cpo",
+      "name": "CPO 共同封裝光學",
+      "en": "Co-Packaged Optics",
+      "category": "optics",
+      "oneliner": "把光引擎搬到交換器晶片旁邊，縮短電訊號要走的路。",
       "related": [
-        "hbm",
-        "chiplet",
-        "cowos"
+        "cowos-l",
+        "hybrid-bonding",
+        "glass-substrate"
+      ],
+      "updated": "2026-11-16"
+    },
+    {
+      "slug": "bspdn",
+      "name": "背面供電",
+      "en": "Backside Power Delivery Network",
+      "category": "fab",
+      "oneliner": "把供電線路移到晶圓背面，正面只留給訊號線。",
+      "related": [
+        "hybrid-bonding",
+        "hvdc-800v",
+        "liquid-cooling"
+      ],
+      "updated": "2026-11-16"
+    },
+    {
+      "slug": "glass-substrate",
+      "name": "玻璃基板",
+      "en": "Glass Core Substrate",
+      "category": "pkg",
+      "oneliner": "用玻璃取代有機材料當載板核心，撐住更大的封裝。",
+      "related": [
+        "cowos-l",
+        "cpo"
+      ],
+      "updated": "2026-11-16"
+    },
+    {
+      "slug": "hvdc-800v",
+      "name": "800V 直流供電",
+      "en": "800 VDC Power Architecture",
+      "category": "power",
+      "oneliner": "機櫃改用 800 伏特直流供電，降低電流和銅排用量。",
+      "related": [
+        "liquid-cooling",
+        "bspdn"
+      ],
+      "updated": "2026-11-16"
+    },
+    {
+      "slug": "liquid-cooling",
+      "name": "液冷散熱",
+      "en": "Direct-to-Chip Liquid Cooling",
+      "category": "power",
+      "oneliner": "讓冷卻液流過貼在晶片上的水冷板，把熱直接帶走。",
+      "related": [
+        "hvdc-800v",
+        "bspdn"
       ],
       "updated": "2026-11-16"
     }

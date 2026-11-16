@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HBM4｜AI 供應鏈技術筆記</title>
+<meta name="description" content="介面加寬到 2048 位元，最底層的邏輯晶片改由晶圓代工做。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="inner">
+  <a class="brand" href="../index.html">AI 供應鏈<span>技術筆記</span></a>
+  <span class="sub">一個技術一頁・研究用</span>
+</div></header>
+
+<main class="wrap term" data-slug="hbm4">
+  <div class="crumb"><a href="../index.html">首頁</a> › 記憶體</div>
+  <div class="term-head">
+    <span class="tag cat-mem">記憶體</span>
+    <h1>HBM4</h1>
+    <div class="en">High Bandwidth Memory 4</div>
+  </div>
+  <div class="oneliner">介面加寬到 2048 位元，最底層的邏輯晶片改由晶圓代工做。</div>
+
+  <section id="what">
+    <h2>技術重點</h2>
+    <p>HBM 是把多層 DRAM 用矽穿孔（TSV）疊起來，放在 GPU 旁邊的高頻寬記憶體。到 HBM3E 為止，每組堆疊的介面是 1024 位元；JEDEC 在 2025 年發布的 HBM4 標準把介面加寬到 2048 位元。</p>
+    <p>變化最大的是最底層的 base die。過去 base die 由記憶體廠用 DRAM 製程自己做，HBM4 開始改用晶圓代工的邏輯製程，客戶還可以在 base die 放進自己的邏輯電路，出現「客製化 HBM」。</p>
+    <p>堆疊層數也往 12 層、16 層走。封裝總高度有上限，層數越多，每層晶片要磨得越薄，鍵合方式也成為各家比拚的重點。</p>
+  </section>
+
+  <section id="compare">
+    <h2>跟舊做法差在哪</h2>
+    <table class="cmp">
+      <tr><th>比較項目</th><th>舊做法</th><th>新做法</th></tr>
+      <tr><td>介面寬度</td><td>1024 位元（HBM3E）</td><td>2048 位元</td></tr>
+      <tr><td>base die</td><td>記憶體廠用 DRAM 製程自製</td><td>晶圓代工邏輯製程，可以客製</td></tr>
+      <tr><td>堆疊層數</td><td>8 到 12 層為主</td><td>12 到 16 層</td></tr>
+    </table>
+  </section>
+
+  <section id="chain">
+    <h2>在供應鏈的位置</h2>
+    <div class="chain">
+      <div class="node"><b>上游</b>DRAM 晶片、代工的 base die、TSV 與鍵合設備</div><span class="arrow">→</span>
+      <div class="node me"><b>本詞條</b>HBM4 堆疊與測試</div><span class="arrow">→</span>
+      <div class="node"><b>下游</b>CoWoS 封裝、下一代 AI GPU</div>
+    </div>
+  </section>
+
+  <section id="companies">
+    <h2>相關公司</h2>
+    <table class="co">
+      <tr><th>公司</th><th>角色</th></tr>
+      <tr><td>SK 海力士</td><td>HBM 市占領先的供應商</td></tr>
+      <tr><td>三星</td><td>DRAM 大廠，也供應 HBM</td></tr>
+      <tr><td>美光</td><td>美國記憶體廠，供應 HBM</td></tr>
+      <tr><td>台積電</td><td>替部分記憶體廠代工 HBM4 base die</td></tr>
+    </table>
+  </section>
+
+  <section id="watch">
+    <h2>研究時看什麼</h2>
+    <ul>
+      <li>各家 base die 用哪一代製程、客製化 HBM 的客戶</li>
+      <li>16 層堆疊用熱壓鍵合還是改用混合鍵合</li>
+      <li>良率與各家在 GPU 新平台的認證進度</li>
+      <li>一顆 GPU 搭幾顆 HBM、容量往哪走</li>
+    </ul>
+  </section>
+
+  <section id="related">
+    <h2>相關詞條</h2>
+    <div class="related">
+      <a href="cowos-l.html">CoWoS-L<small>用局部矽橋取代整片矽中介層，讓 AI 晶片封裝做得更大。</small></a>
+      <a href="hybrid-bonding.html">混合鍵合<small>不用凸塊焊錫，讓上下兩層晶片的銅接點直接接合。</small></a>
+    </div>
+  </section>
+
+  <p class="meta">更新日期：2026-11-16・資料來源：公開資料整理，不構成投資建議</p>
+</main>
+<footer><a href="../index.html">← 回首頁</a></footer>
+</body>
+</html>

@@ -5,7 +5,7 @@
 全部通過才可以 commit。檢查項目：
 1. terms.json 每個詞條都有對應的 wiki/<slug>.html，反過來也一樣
 2. 必填欄位都有填，分類代碼存在，slug 格式正確，一句話說明 40 字以內
-3. 每頁五個段落（what / chain / companies / myth / related）都在，而且照順序
+3. 每頁六個段落（what / compare / chain / companies / watch / related）都在，而且照順序
 4. 沒有留下 {{ }} 佔位符或範本註解
 5. 頁面標題、一句話說明跟 terms.json 一致
 6. 相關詞條：每頁至少 2 個，連到的頁面存在，而且 A 連 B 時 B 也要連回 A
@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SECTIONS = ["what", "chain", "companies", "myth", "related"]
+SECTIONS = ["what", "compare", "chain", "companies", "watch", "related"]
 BANNED = ["目標價", "股價", "買進", "賣出", "推薦買", "加碼", "減碼"]
 REQUIRED = ["slug", "name", "en", "category", "oneliner", "related", "updated"]
 
@@ -71,10 +71,15 @@ def main():
         page_links = set(re.findall(r'<a href="([a-z0-9-]+)\.html">', html))
         if page_links != set(rel):
             errors.append(f"{slug}: 頁面相關詞條 {sorted(page_links)} 跟 terms.json {sorted(rel)} 不一致")
-        for sec in ["what", "myth"]:
-            m = re.search(rf'<section id="{sec}">(.*?)</section>', html, re.S)
-            if m and "<p>" not in m.group(1):
-                errors.append(f"{slug}: {sec} 段落沒有內容")
+        m = re.search(r'<section id="what">(.*?)</section>', html, re.S)
+        if m and "<p>" not in m.group(1):
+            errors.append(f"{slug}: what 段落沒有內容")
+        m = re.search(r'<section id="compare">(.*?)</section>', html, re.S)
+        if m and m.group(1).count("<tr>") < 3:
+            errors.append(f"{slug}: compare 比較表至少要 2 列")
+        m = re.search(r'<section id="watch">(.*?)</section>', html, re.S)
+        if m and m.group(1).count("<li>") < 2:
+            errors.append(f"{slug}: watch 至少要 2 條")
         m = re.search(r'<section id="companies">(.*?)</section>', html, re.S)
         if m and m.group(1).count("<tr>") < 2:
             errors.append(f"{slug}: 相關公司表格沒有內容")

@@ -10,10 +10,11 @@
   --navy: #10213d;
   --accent: #2f6fed;
   /* 分類色：新增分類時，這裡、data/terms.json 的 categories、CLAUDE.md 三處要一起改 */
-  --c-fab: #2f6fed;      /* 製造 */
-  --c-equip: #e07b1a;    /* 設備材料 */
-  --c-pkg: #7c4ddb;      /* 封裝 */
+  --c-pkg: #7c4ddb;      /* 先進封裝 */
   --c-mem: #12a57a;      /* 記憶體 */
+  --c-fab: #2f6fed;      /* 製程 */
+  --c-optics: #0e9bb5;   /* 光通訊 */
+  --c-power: #e07b1a;    /* 電源散熱 */
   --c-test: #d6404e;     /* 測試 */
   --radius: 14px;
 }
@@ -92,7 +93,8 @@ a:hover { text-decoration: underline; }
   border-radius: 999px; vertical-align: middle;
 }
 .cat-fab { background: var(--c-fab); }
-.cat-equip { background: var(--c-equip); }
+.cat-optics { background: var(--c-optics); }
+.cat-power { background: var(--c-power); }
 .cat-pkg { background: var(--c-pkg); }
 .cat-mem { background: var(--c-mem); }
 .cat-test { background: var(--c-test); }
@@ -118,6 +120,12 @@ a:hover { text-decoration: underline; }
 .chain .node.me { border: 2px solid var(--accent); background: #eef3ff; }
 .chain .arrow { align-self: center; color: #9aa6b8; font-weight: 700; }
 
+table.cmp { border-collapse: collapse; width: 100%; font-size: 15px; margin: 6px 0 10px; }
+table.cmp th, table.cmp td { border-bottom: 1px solid var(--line); padding: 8px 6px; text-align: left; vertical-align: top; }
+table.cmp th { color: var(--ink-soft); font-weight: 500; font-size: 13px; }
+table.cmp td:first-child { font-weight: 700; white-space: nowrap; }
+.term section ul { margin: 6px 0 10px; padding-left: 22px; }
+.term section li { margin: 4px 0; }
 table.co { border-collapse: collapse; width: 100%; font-size: 15px; margin: 6px 0 10px; }
 table.co th, table.co td { border-bottom: 1px solid var(--line); padding: 8px 6px; text-align: left; vertical-align: top; }
 table.co th { color: var(--ink-soft); font-weight: 500; font-size: 13px; }

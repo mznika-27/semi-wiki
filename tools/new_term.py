@@ -3,9 +3,9 @@
 用法：
     python tools/new_term.py <slug> <中文名稱> <英文名稱> <分類代碼> <一句話說明>
 例：
-    python tools/new_term.py wafer-test 晶圓測試 "Wafer Test (CP)" test "晶圓切割前，先測出哪些晶片是好的。"
+    python tools/new_term.py soic SoIC "System on Integrated Chips" pkg "晶片直接上下疊起來接合，做成真正的 3D 晶片。"
 
-跑完之後還要手動把 wiki/<slug>.html 裡五個段落寫完，相關詞條填進 terms.json 的 related，最後跑 tools/check.py。
+跑完之後還要手動把 wiki/<slug>.html 裡六個段落寫完，相關詞條填進 terms.json 的 related，最後跑 tools/check.py。
 """
 import json
 import re
@@ -43,7 +43,7 @@ def main():
     data["terms"].append({"slug": slug, "name": name, "en": en, "category": cat,
                           "oneliner": oneliner, "related": [], "updated": today})
     data_path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"已建立 wiki/{slug}.html，並登記到 data/terms.json。接著把五個段落寫完。")
+    print(f"已建立 wiki/{slug}.html，並登記到 data/terms.json。接著把六個段落寫完。")
 
 
 if __name__ == "__main__":
