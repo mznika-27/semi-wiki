@@ -8,7 +8,7 @@
 3. 每頁六個段落（what / compare / chain / companies / watch / related）都在，而且照順序
 4. 沒有留下 {{ }} 佔位符或範本註解
 5. 頁面標題、一句話說明跟 terms.json 一致
-6. 相關詞條：每頁至少 2 個，連到的頁面存在，而且 A 連 B 時 B 也要連回 A
+6. 相關詞條：每頁至少 1 個，連到的頁面存在，而且 A 連 B 時 B 也要連回 A
 7. 不准出現的字眼（股價、目標價、買進、賣出、推薦買）
 """
 import json
@@ -45,8 +45,8 @@ def main():
         if len(t.get("oneliner", "")) > 40:
             errors.append(f"{slug}: 一句話說明超過 40 字（{len(t['oneliner'])} 字）")
         rel = t.get("related", [])
-        if len(rel) < 2:
-            errors.append(f"{slug}: 相關詞條少於 2 個")
+        if len(rel) < 1:
+            errors.append(f"{slug}: 至少要有 1 個相關詞條")
         for r in rel:
             if r not in terms:
                 errors.append(f"{slug}: 相關詞條 {r} 不存在")

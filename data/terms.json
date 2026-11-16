@@ -71,7 +71,8 @@
       "related": [
         "cowos-l",
         "hybrid-bonding",
-        "glass-substrate"
+        "glass-substrate",
+        "lpo"
       ],
       "updated": "2026-11-16"
     },
@@ -121,6 +122,17 @@
       "related": [
         "hvdc-800v",
         "bspdn"
+      ],
+      "updated": "2026-11-16"
+    },
+    {
+      "slug": "lpo",
+      "name": "LPO 線性驅動可插拔光模組",
+      "en": "Linear-drive Pluggable Optics",
+      "category": "optics",
+      "oneliner": "拿掉光模組裡的 DSP，改由交換器晶片的 SerDes 直接驅動光元件。",
+      "related": [
+        "cpo"
       ],
       "updated": "2026-11-16"
     }
