@@ -3,7 +3,7 @@
 用法：
     python tools/new_term.py <slug> <中文名稱> <英文名稱> <分類代碼> <一句話說明>
 例：
-    python tools/new_term.py probe-card 探針卡 "Probe Card" test "晶圓切割前，用來一顆一顆測晶片好壞的針頭。"
+    python tools/new_term.py wafer-test 晶圓測試 "Wafer Test (CP)" test "晶圓切割前，先測出哪些晶片是好的。"
 
 跑完之後還要手動把 wiki/<slug>.html 裡五個段落寫完，相關詞條填進 terms.json 的 related，最後跑 tools/check.py。
 """

@@ -70,7 +70,8 @@
         "hbm",
         "chiplet",
         "abf-substrate",
-        "foundry"
+        "foundry",
+        "probe-card"
       ],
       "updated": "2026-11-16"
     },
@@ -84,7 +85,8 @@
         "cowos",
         "advanced-node",
         "hbm",
-        "abf-substrate"
+        "abf-substrate",
+        "probe-card"
       ],
       "updated": "2026-11-16"
     },
@@ -96,7 +98,8 @@
       "oneliner": "把好幾層 DRAM 疊起來，緊貼 GPU，讓資料一次傳很多。",
       "related": [
         "cowos",
-        "chiplet"
+        "chiplet",
+        "probe-card"
       ],
       "updated": "2026-11-16"
     },
@@ -109,6 +112,19 @@
       "related": [
         "cowos",
         "chiplet"
+      ],
+      "updated": "2026-11-16"
+    },
+    {
+      "slug": "probe-card",
+      "name": "探針卡",
+      "en": "Probe Card",
+      "category": "test",
+      "oneliner": "晶圓切割前，用細針接觸晶片接點，測出哪些晶片是好的。",
+      "related": [
+        "hbm",
+        "chiplet",
+        "cowos"
       ],
       "updated": "2026-11-16"
     }
