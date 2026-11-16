@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NPO 近封裝光學｜AI 供應鏈技術筆記</title>
+<meta name="description" content="光引擎放在交換器晶片旁的板上，介於可插拔和 CPO 之間。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="inner">
+  <a class="brand" href="../index.html">AI 供應鏈<span>技術筆記</span></a>
+  <span class="sub">一個技術一頁・研究用</span>
+</div></header>
+
+<main class="wrap term" data-slug="npo">
+  <div class="crumb"><a href="../index.html">首頁</a> › 光通訊</div>
+  <div class="term-head">
+    <span class="tag cat-optics">光通訊</span>
+    <h1>NPO 近封裝光學</h1>
+    <div class="en">Near-Packaged Optics</div>
+  </div>
+  <div class="oneliner">光引擎放在交換器晶片旁的板上，介於可插拔和 CPO 之間。</div>
+  <div class="neck">解的瓶頸：<b>互連耗電</b>・幾萬顆 GPU 之間傳資料，光電轉換的耗電和延遲越來越大</div>
+
+  <section id="what">
+    <h2>技術重點</h2>
+    <p>可插拔光模組的電訊號要跨過整片主機板才到前面板，速度越高損耗越大；CPO 把光引擎直接封進交換器晶片的封裝裡，電訊號最短，但光引擎壞了要連交換器晶片一起處理，良率和維修風險都集中在同一顆封裝上。</p>
+    <p>NPO 走中間路線：光引擎不進封裝，改放在交換器晶片旁邊的同一塊載板或主機板上，電訊號只走幾公分。省電效果比可插拔好、比 CPO 差一些，但光引擎可以獨立測試、獨立更換，交換器晶片和光引擎也能分開採購。</p>
+    <p>所以 NPO 常被看成 CPO 成熟前的過渡方案，也被一些業者當成長期選項，看重的就是可維修和供應鏈彈性。
+  </section>
+
+  <section id="compare">
+    <h2>跟舊做法差在哪</h2>
+    <table class="cmp">
+      <tr><th>比較項目</th><th>舊做法</th><th>新做法</th></tr>
+      <tr><td>光引擎位置</td><td>前面板可插拔模組（CPO 則在封裝內）</td><td>交換器晶片旁的載板或主機板上</td></tr>
+      <tr><td>電訊號距離</td><td>跨過整片主機板</td><td>幾公分，介於可插拔和 CPO 之間</td></tr>
+      <tr><td>維修與良率</td><td>CPO 的光引擎和晶片綁在同一顆封裝</td><td>光引擎可以獨立測試、更換</td></tr>
+      <tr><td>供應鏈</td><td>CPO 由晶片廠主導整合</td><td>光引擎可以向不同供應商分開採購</td></tr>
+    </table>
+  </section>
+
+  <section id="chain">
+    <h2>在供應鏈的位置</h2>
+    <div class="chain">
+      <div class="node"><b>上游</b>矽光子晶片、雷射、高密度連接器</div><span class="arrow">→</span>
+      <div class="node me"><b>本詞條</b>光引擎模組與板上組裝</div><span class="arrow">→</span>
+      <div class="node"><b>下游</b>AI 叢集交換器</div>
+    </div>
+  </section>
+
+  <section id="companies">
+    <h2>相關公司</h2>
+    <table class="co">
+      <tr><th>公司</th><th>角色</th></tr>
+      <tr><td>（待補）</td><td>公開資料還不足以確認各家在 NPO 的量產角色，確認後再補</td></tr>
+    </table>
+  </section>
+
+  <section id="watch">
+    <h2>研究時看什麼</h2>
+    <ul>
+      <li>交換器廠在下一代平台選 CPO、NPO 還是繼續用可插拔，各自的比例</li>
+      <li>光引擎的介面和尺寸有沒有共同規格，決定能不能多家供應</li>
+      <li>板上高密度光、電連接器的需求變化</li>
+    </ul>
+  </section>
+
+  <section id="related">
+    <h2>相關詞條</h2>
+    <div class="related">
+      <a href="cpo.html">CPO 共同封裝光學<small>把光引擎搬到交換器晶片旁邊，縮短電訊號要走的路。</small></a>
+      <a href="lpo.html">LPO 線性驅動可插拔光模組<small>拿掉光模組裡的 DSP，改由交換器晶片的 SerDes 直接驅動光元件。</small></a>
+    </div>
+  </section>
+
+  <p class="meta">更新日期：2026-11-16・資料來源：公開資料整理，不構成投資建議</p>
+</main>
+<footer><a href="../index.html">← 回首頁</a></footer>
+</body>
+</html>

@@ -28,7 +28,8 @@
     box.className = 'nk';
     const links = terms.filter(t => t.bottleneck === key)
       .map(t => `<a href="wiki/${t.slug}.html">${t.name}</a>`).join('');
-    box.innerHTML = `<h4>${b.label}</h4><p>${b.desc}</p>${links}`;
+    const todo = ((data.backlog || {})[key] || []).map(n => `<span class="todo">${n}</span>`).join('');
+    box.innerHTML = `<h4>${b.label}</h4><p>${b.desc}</p>${links}` + (todo ? `<div class="todo-h">待補</div>${todo}` : '');
     necks.appendChild(box);
   }
 

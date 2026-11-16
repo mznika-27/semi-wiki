@@ -98,7 +98,8 @@
         "cowos-l",
         "hybrid-bonding",
         "glass-substrate",
-        "lpo"
+        "lpo",
+        "npo"
       ],
       "updated": "2026-11-16"
     },
@@ -163,9 +164,50 @@
       "bottleneck": "interconnect",
       "oneliner": "拿掉光模組裡的 DSP，改由交換器晶片的 SerDes 直接驅動光元件。",
       "related": [
-        "cpo"
+        "cpo",
+        "npo"
+      ],
+      "updated": "2026-11-16"
+    },
+    {
+      "slug": "npo",
+      "name": "NPO 近封裝光學",
+      "en": "Near-Packaged Optics",
+      "category": "optics",
+      "bottleneck": "interconnect",
+      "oneliner": "光引擎放在交換器晶片旁的板上，介於可插拔和 CPO 之間。",
+      "related": [
+        "cpo",
+        "lpo"
       ],
       "updated": "2026-11-16"
     }
-  ]
+  ],
+  "backlog": {
+    "density": [
+      "SoIC",
+      "面板級封裝（CoPoS）",
+      "熱壓鍵合（TCB）"
+    ],
+    "bandwidth": [
+      "HBM4E",
+      "SOCAMM",
+      "CXL 記憶體擴充"
+    ],
+    "chip-power": [
+      "GAA 電晶體",
+      "整合式電壓調節（IVR）"
+    ],
+    "interconnect": [
+      "1.6T 光模組",
+      "AEC 主動式電纜",
+      "224G SerDes",
+      "高速 PCB 材料（M9 CCL、HVLP 銅箔）"
+    ],
+    "rack": [
+      "BBU 備援電池",
+      "固態變壓器（SST）",
+      "浸沒式冷卻"
+    ]
+  }
 }

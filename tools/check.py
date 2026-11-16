@@ -9,7 +9,8 @@
 4. 沒有留下 {{ }} 佔位符或範本註解
 5. 頁面標題、一句話說明跟 terms.json 一致
 6. 相關詞條：每頁至少 1 個，連到的頁面存在，而且 A 連 B 時 B 也要連回 A
-7. 不准出現的字眼（股價、目標價、買進、賣出、推薦買）
+7. 待補清單的瓶頸存在、寫完的詞條已經從待補清單拿掉
+8. 不准出現的字眼（股價、目標價、買進、賣出、推薦買）
 """
 import json
 import re
@@ -93,6 +94,14 @@ def main():
         for w in BANNED:
             if w in text:
                 errors.append(f"{slug}: 出現不准用的字眼「{w}」")
+
+    names = {t["name"] for t in terms.values()}
+    for key, items in data.get("backlog", {}).items():
+        if key not in necks:
+            errors.append(f"待補清單的瓶頸 {key} 不存在")
+        for n in items:
+            if n in names:
+                errors.append(f"「{n}」已經有詞條了，要從待補清單拿掉")
 
     if errors:
         print(f"沒通過，共 {len(errors)} 個問題：")
